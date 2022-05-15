@@ -63,6 +63,12 @@ function searchWeath(responce) {
     responce.data.main.feels_like
   );
   document.querySelector("#wind").innerHTML = responce.data.wind.speed;
+  document
+    .querySelector("#icon-weather")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`
+    );
 }
 function submit(event) {
   event.preventDefault();

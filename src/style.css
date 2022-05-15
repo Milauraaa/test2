@@ -140,3 +140,6 @@ a:hover {
   padding: 10px;
   box-sizing: border-box;
 }
+.link {
+  text-align: center;
+}

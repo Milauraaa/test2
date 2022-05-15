@@ -1,0 +1,142 @@
+body {
+  font-family: "Josefin Slab", serif;
+  background-color: rgb(210, 208, 208);
+}
+.container {
+  border-radius: 25px;
+  width: 70%;
+  background-color: rgb(245, 241, 241);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.search {
+  text-align: center;
+  font-size: 12px;
+  margin: 0 auto 5px;
+}
+.search:hover {
+  transition: all 150ms ease-in-out;
+}
+button {
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto 5px;
+  background-color: rgb(245, 241, 241);
+}
+button:hover {
+  transition: all 150ms ease-in-out;
+  background-color: rgb(233, 230, 230);
+}
+.il-cloudly {
+  font-size: 80px;
+  border-radius: 30px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+.il-rainy,
+.il-cloud,
+.il-sun {
+  font-size: 30px;
+  text-align: center;
+  display: block;
+}
+.il-rainy,
+.il-cloudly,
+.il-cloud {
+  color: rgb(23, 23, 102);
+}
+.il-sun {
+  color: rgb(255, 227, 15);
+}
+.temperature {
+  font-size: 40px;
+  font-weight: 900;
+}
+.units {
+  font-size: 24px;
+  font-weight: 900;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: grey;
+}
+.date-time {
+  font-size: 30px;
+  font-weight: 900;
+}
+.section-1 {
+  box-sizing: border-box;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px;
+  height: 450px;
+  font-size: 14px;
+}
+.block-day {
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 0;
+  background-color: #fff;
+  border-radius: 25px;
+  height: 120px;
+  text-align: center;
+}
+.dayweek {
+  font-size: 16px;
+}
+.tempweek {
+  font-size: 14px;
+}
+.dayweek,
+.section,
+.category {
+  font-family: "Montserrat", sans-serif;
+}
+.block-highlights {
+  padding: 10px;
+  height: 110px;
+  width: 190px;
+  background-color: #fff;
+  border-radius: 25px;
+  vertical-align: top;
+  margin-top: 0;
+}
+.category {
+  color: rgb(186, 183, 183);
+  text-align: left;
+  font-size: 14px;
+}
+.details {
+  text-align: left;
+  font-size: 24px;
+}
+.max-min-temperature {
+  font-size: 20px;
+  text-align: left;
+}
+.section-2 {
+  padding: 10px;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-top: 0;
+}
+.section-3 {
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-top: 0 auto;
+  margin: 0;
+}
+.section-2,
+.section-4,
+.section-5 {
+  font-size: 24px;
+  padding: 10px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b5ecc6b06d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,200;1,600&family=Montserrat:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="section-1">
+            <form class="search" id="search-form">
+              <input
+                type="text"
+                id="search-input"
+                autofocus="on"
+                autocomplete="off"
+                placeholder="enter city"
+              />
+              <input type="submit" value="🔍" />
+            </form>
+            <button id="geo-button">Current</button>
+            <br />
+            <h5 id="current-city">Carcavelos, Lisbon, Portugal</h5>
+            <i class="fa-solid fa-cloud il-cloudly"></i>
+            <div class="float-left">
+              <span class="temperature" id="temperature">18</span>
+              <span class="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a>
+              </span>
+            </div>
+            <p id="description">cloudly</p>
+            <h4 class="date-time" id="datetime">MONDAY, 12:00</h4>
+            <p class="hightlow">
+              H: <span id="high-temp">24</span>° L:
+              <span id="low-temp"> 16</span>°
+            </p>
+            <p class="aboutweather" id="about-weather">
+              Cloudy weather will continue until the end of the day
+            </p>
+            <br />
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="row row-cols-5 section-2">
+            <div class="col">
+              <div class="block-day">
+                <p class="dayweek">TUE</p>
+                <i class="fa-solid fa-sun il-sun"></i>
+                <p class="tempweek">22° - 16°</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-day">
+                <p class="dayweek">WED</p>
+                <i class="fa-solid fa-cloud-bolt il-cloud"></i>
+                <p class="tempweek">17° - 13°</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-day">
+                <p class="dayweek">THU</p>
+                <i class="fa-solid fa-cloud-showers-heavy il-rainy"></i>
+                <p class="tempweek">18° - 12°</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-day">
+                <p class="dayweek">FRI</p>
+                <i class="fa-solid fa-sun il-sun"></i>
+                <p class="tempweek">22° - 16°</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-day">
+                <p class="dayweek">SAT</p>
+                <i class="fa-solid fa-sun il-sun"></i>
+                <p class="tempweek">22° - 16°</p>
+              </div>
+            </div>
+          </div>
+          <p class="section-2">TODAY'S HIGTLIGHTS</p>
+          <div class="row section-4">
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">Humidity</p>
+                <p class="details"><span id="humidity">49</span>%</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">UV Index</p>
+                <p class="details"><span id="index">6</span></p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">Sunrice & Sunset</p>
+                <p class="max-min-temperature">
+                  <i class="fa-solid fa-arrow-up-long" id="sunrice"></i> 06:40
+                  <br />
+                  <i class="fa-solid fa-arrow-down-long" id="sunset"></i> 20:27
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row section-5">
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">Feels like</p>
+                <p class="details"><span id="feels-temp">18</span>°</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">Wind</p>
+                <p class="details"><span id="wind">10</span>km/h</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="block-highlights">
+                <p class="category">Precipitation</p>
+                <p class="details">0mm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

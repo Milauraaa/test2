@@ -22,26 +22,24 @@ function formatDate(date) {
   }
   return `${day.toUpperCase()}, ${hours}:${minutes}`;
 }
-let dateTime = document.querySelector("h4");
-let currentDate = new Date();
-dateTime.innerHTML = formatDate(currentDate);
 
 function fahrengeit(event) {
   event.preventDefault();
   let temp = document.querySelector("#temperature");
-  let fTemp = Math.round((18 * 9) / 5 + 32);
-  temp.innerHTML = ` ${fTemp}`;
+  let fahrengeitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrengeitTemperature);
 }
-let fTemp = document.querySelector("#fahrenheit-link");
-fTemp.addEventListener("click", fahrengeit);
-
-function celcius(event) {
+function fahrengeitWeek(event) {
+  event.preventDefault();
+  let weekTemp = document.querySelector("temp-week");
+  let fahrengeitTemperatureWeek = (weekTemp * 9) / 5 + 32;
+  weekTemp.innerHTML = Math.round(fahrengeitTemperatureWeek);
+}
+function celsius(event) {
   event.preventDefault();
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = `18`;
+  temp.innerHTML = Math.round(celsiusTemperature);
 }
-let cTemp = document.querySelector("#celsius-link");
-cTemp.addEventListener("click", celcius);
 
 function searchWeath(responce) {
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -69,6 +67,7 @@ function searchWeath(responce) {
       "src",
       `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`
     );
+  celsiusTemperature = responce.data.main.temp;
 }
 function submit(event) {
   event.preventDefault();
@@ -82,8 +81,6 @@ function search(city) {
   let apiLink = `${apiUrl}q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiLink).then(searchWeath);
 }
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", submit);
 
 function geoTemp(responce) {
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -105,6 +102,21 @@ function geoPosition(position) {
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(geoPosition);
 }
+
+let dateTime = document.querySelector("h4");
+let currentDate = new Date();
+dateTime.innerHTML = formatDate(currentDate);
+
+let celsiusTemperature = null;
+
+let fahrengeitLink = document.querySelector("#fahrenheit-link");
+fahrengeitLink.addEventListener("click", fahrengeit, fahrengeitWeek);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", celsius);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", submit);
 
 let currentButton = document.querySelector("#geo-button");
 currentButton.addEventListener("click", getCurrentPosition);

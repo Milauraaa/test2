@@ -120,3 +120,5 @@ searchForm.addEventListener("submit", submit);
 
 let currentButton = document.querySelector("#geo-button");
 currentButton.addEventListener("click", getCurrentPosition);
+
+search("Lisbon");

@@ -72,12 +72,13 @@ a:hover {
 }
 .section-1 {
   box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 5px;
   text-align: left;
   background-color: #fff;
   border-radius: 25px;
   padding: 10px;
   height: 450px;
-  font-size: 14px;
 }
 .block-day {
   padding: 5px;

@@ -40,7 +40,10 @@ function getForecast(coordinates) {
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
-
+  document.querySelector("#index").innerHTML = Math.round(
+    response.data.current.uvi
+  );
+  console.log(response.data);
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -73,24 +76,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function fahrengeit(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temperature");
-  let fahrengeitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrengeitTemperature);
-}
-function fahrengeitWeek(event) {
-  event.preventDefault();
-  let weekTemp = document.querySelector("temp-week");
-  let fahrengeitTemperatureWeek = (weekTemp * 9) / 5 + 32;
-  weekTemp.innerHTML = Math.round(fahrengeitTemperatureWeek);
-}
-function celsius(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(celsiusTemperature);
-}
-
 function searchWeath(responce) {
   document.querySelector("#temperature").innerHTML = Math.round(
     responce.data.main.temp
@@ -111,13 +96,44 @@ function searchWeath(responce) {
     responce.data.main.feels_like
   );
   document.querySelector("#wind").innerHTML = responce.data.wind.speed;
+  document.querySelector("#pressure").innerHTML = responce.data.main.pressure;
+
   document
     .querySelector("#icon-weather")
     .setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`
     );
-  celsiusTemperature = responce.data.main.temp;
+
+  function formatSunriseTime(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    let sunriseTime = document.querySelector("#sunrise");
+    sunriseTime.innerHTML = `${hours}:${minutes}`;
+  }
+  formatSunriseTime(responce.data.sys.sunrise * 1000);
+
+  function formatSunsetTime(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    let sunsetTime = document.querySelector("#sunset");
+    sunsetTime.innerHTML = `${hours}:${minutes}`;
+  }
+  formatSunsetTime(responce.data.sys.sunset * 1000);
   getForecast(responce.data.coord);
 }
 function submit(event) {
@@ -133,43 +149,11 @@ function search(city) {
   axios.get(apiLink).then(searchWeath);
 }
 
-function geoTemp(responce) {
-  document.querySelector("#temperature").innerHTML = Math.round(
-    responce.data.main.temp
-  );
-  document.querySelector("#current-city").innerHTML = responce.data.name;
-}
-
-function geoPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let units = "metric";
-  let apiKey = "2f508dedc6bfa0bf55aae24e4db29f0a";
-  let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiLink = `${apiUrl}&lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiLink).then(geoTemp);
-}
-
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(geoPosition);
-}
-
 let dateTime = document.querySelector("h4");
 let currentDate = new Date();
 dateTime.innerHTML = formatDate(currentDate);
 
-let celsiusTemperature = null;
-
-let fahrengeitLink = document.querySelector("#fahrenheit-link");
-fahrengeitLink.addEventListener("click", fahrengeit, fahrengeitWeek);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", celsius);
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submit);
-
-let currentButton = document.querySelector("#geo-button");
-currentButton.addEventListener("click", getCurrentPosition);
 
 search("Lisbon");

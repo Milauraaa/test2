@@ -1,10 +1,10 @@
 body {
   font-family: "Josefin Slab", serif;
-  background-color: rgb(232, 227, 227);
+  background-color: rgb(222, 216, 216);
 }
 .container {
   border-radius: 25px;
-  width: 70%;
+  width: 60%;
   background-color: rgb(245, 241, 241);
   margin: 0 auto;
   box-sizing: border-box;
@@ -12,51 +12,17 @@ body {
 .search {
   text-align: center;
   font-size: 12px;
-  margin: 0 auto 5px;
+  margin-top: 10px;
 }
 .search:hover {
   transition: all 150ms ease-in-out;
 }
-button {
-  border: none;
-  border-radius: 5px;
-  display: block;
-  margin: 0 auto 5px;
-  background-color: rgb(245, 241, 241);
-}
-button:hover {
-  transition: all 150ms ease-in-out;
-  background-color: rgb(233, 230, 230);
-}
-.il-cloudly {
-  font-size: 80px;
-  border-radius: 30px;
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
-}
-.il-rainy,
-.il-cloud,
-.il-sun {
-  font-size: 30px;
-  text-align: center;
-  display: block;
-}
-.il-rainy,
-.il-cloudly,
-.il-cloud {
-  color: rgb(23, 23, 102);
-}
-.il-sun {
-  color: rgb(255, 227, 15);
-}
 .temperature {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 900;
 }
 .units {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 900;
 }
 a {
@@ -67,30 +33,27 @@ a:hover {
   color: grey;
 }
 .date-time {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 900;
 }
 .section-1 {
-  box-sizing: border-box;
-  margin-top: 10px;
-  margin-bottom: 5px;
   text-align: center;
   background-color: #fff;
   border-radius: 25px;
-  padding: 10px;
-  height: 450px;
+  height: 400px;
+  width: 250px;
+  margin: 10px;
 }
 .block-day {
   padding: 5px;
-  box-sizing: border-box;
-  margin-top: 0;
   background-color: #fff;
   border-radius: 25px;
-  height: 120px;
+  height: 100px;
+  width: 80px;
   text-align: center;
 }
 .dayweek {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 auto;
 }
 .tempweek {
@@ -106,8 +69,8 @@ a:hover {
 }
 .block-highlights {
   padding: 10px;
-  height: 110px;
-  width: 190px;
+  height: 105px;
+  width: 160px;
   background-color: #fff;
   border-radius: 25px;
   vertical-align: top;
@@ -120,17 +83,17 @@ a:hover {
 }
 .details {
   text-align: left;
-  font-size: 24px;
-}
-.max-min-temperature {
   font-size: 20px;
+}
+.sunriseSunset {
+  font-size: 18px;
   text-align: left;
 }
 .section-2 {
   padding: 10px;
   box-sizing: border-box;
   vertical-align: top;
-  margin-top: 0;
+  margin: 0 auto;
 }
 .section-3 {
   box-sizing: border-box;
@@ -141,10 +104,11 @@ a:hover {
 .section-2,
 .section-4,
 .section-5 {
-  font-size: 24px;
-  padding: 10px;
+  font-size: 20px;
   box-sizing: border-box;
+  padding: 10px;
 }
 .link {
   text-align: center;
+  margin: 0 auto;
 }

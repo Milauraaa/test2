@@ -28,40 +28,33 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-4">
-          <div class="section-1">
-            <form class="search" id="search-form">
-              <input
-                type="text"
-                id="search-input"
-                autofocus="on"
-                autocomplete="off"
-                placeholder="enter city"
-              />
-              <input type="submit" value="🔍" />
-            </form>
-            <button id="geo-button">Current</button>
-            <br />
-            <h5 id="current-city">Carcavelos, Lisbon, Portugal</h5>
-            <img src="" id="icon-weather" class="iconWeather" />
-            <div class="float-left">
-              <span class="temperature" id="temperature">18</span>
-              <span class="units">
-                <a href="#" id="celsius-link">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a>
-              </span>
-            </div>
-            <p id="description">cloudly</p>
-            <h4 class="date-time" id="datetime">MONDAY, 12:00</h4>
-            <p class="hightlow">
-              H: <span id="high-temp">24</span>° L:
-              <span id="low-temp"> 16</span>°
-            </p>
-            <p class="aboutweather" id="about-weather">
-              Cloudy weather will continue until the end of the day
-            </p>
-            <br />
+        <div class="col-4 section-1">
+          <form class="search" id="search-form">
+            <input
+              type="text"
+              id="search-input"
+              autofocus="on"
+              autocomplete="off"
+              placeholder="enter city"
+            />
+            <input type="submit" value="🔍" />
+          </form>
+          <br />
+          <h5 id="current-city">Lisbon</h5>
+          <img src="" id="icon-weather" class="iconWeather" />
+          <div class="float-left">
+            <span class="temperature" id="temperature">18°</span>
+            <span class="units">°C</span>
           </div>
+          <p id="description">cloudly</p>
+          <h4 class="date-time" id="datetime">MONDAY, 12:00</h4>
+          <p class="hightlow">
+            H: <span id="high-temp">24</span>° L:
+            <span id="low-temp"> 16</span>°
+          </p>
+          <p class="aboutweather" id="about-weather">
+            Cloudy weather will continue until the end of the day
+          </p>
         </div>
         <div class="col-8">
           <div class="weather-forecast" id="forecast"></div>
@@ -81,11 +74,13 @@
             </div>
             <div class="col">
               <div class="block-highlights">
-                <p class="category">Sunrice & Sunset</p>
-                <p class="max-min-temperature">
-                  <i class="fa-solid fa-arrow-up-long" id="sunrice"></i> 06:40
+                <p class="category">Sunrise & Sunset</p>
+                <p class="sunriseSunset" id="sunrise-sunset">
+                  <i class="fa-solid fa-arrow-up-long"></i>
+                  <span id="sunrise">06:40</span>
                   <br />
-                  <i class="fa-solid fa-arrow-down-long" id="sunset"></i> 20:27
+                  <i class="fa-solid fa-arrow-down-long"></i>
+                  <span id="sunset"> 20:27</span>
                 </p>
               </div>
             </div>
@@ -105,8 +100,8 @@
             </div>
             <div class="col">
               <div class="block-highlights">
-                <p class="category">Precipitation</p>
-                <p class="details">0mm</p>
+                <p class="category">Pressure</p>
+                <p class="details"><span id="pressure">10</span>mb</p>
               </div>
             </div>
           </div>

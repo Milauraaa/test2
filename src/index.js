@@ -23,6 +23,14 @@ function formatDate(date) {
   return `${day.toUpperCase()}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}
+
 function getForecast(coordinates) {
   let apiKey = "2f508dedc6bfa0bf55aae24e4db29f0a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -31,22 +39,34 @@ function getForecast(coordinates) {
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-
-  let days = ["THU", "FRI", "SAT", "SUN", "MON"];
+  let forecast = response.data.daily;
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2 section-2">
               <div class="block-day">
-                <p class="dayweek">${day}</p>
-                <i class="fa-solid fa-sun il-sun"></i>
-                <p class="tempweek"> <span id="temp-week">22</span>° - <span id="temp-week"></span>16</span>°</p>
+                <p class="dayweek">${formatDay(forecastDay.dt)}</p>
+
+                <img
+                src= "http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
+                alt = ""
+                width = "50"
+                />
+                <p class="tempweek"> <span id="temp-week" class= "maxTempWeek">${Math.round(
+                  forecastDay.temp.max
+                )}</span>° - <span id="temp-week"></span>${Math.round(
+          forecastDay.temp.min
+        )}</span>°</p>
         </div>
       </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

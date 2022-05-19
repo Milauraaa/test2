@@ -1,6 +1,6 @@
 body {
   font-family: "Josefin Slab", serif;
-  background-color: rgb(210, 208, 208);
+  background-color: rgb(232, 227, 227);
 }
 .container {
   border-radius: 25px;
@@ -74,7 +74,7 @@ a:hover {
   box-sizing: border-box;
   margin-top: 10px;
   margin-bottom: 5px;
-  text-align: left;
+  text-align: center;
   background-color: #fff;
   border-radius: 25px;
   padding: 10px;
@@ -91,9 +91,13 @@ a:hover {
 }
 .dayweek {
   font-size: 16px;
+  margin: 0 auto;
 }
 .tempweek {
   font-size: 14px;
+}
+.maxTempWeek {
+  font-weight: 900;
 }
 .dayweek,
 .section,

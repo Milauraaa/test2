@@ -23,6 +23,30 @@ function formatDate(date) {
   return `${day.toUpperCase()}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["THU", "FRI", "SAT", "SUN", "MON"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 section-2">
+              <div class="block-day">
+                <p class="dayweek">${day}</p>
+                <i class="fa-solid fa-sun il-sun"></i>
+                <p class="tempweek"> <span id="temp-week">22</span>° - <span id="temp-week"></span>16</span>°</p>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function fahrengeit(event) {
   event.preventDefault();
   let temp = document.querySelector("#temperature");
@@ -122,3 +146,4 @@ let currentButton = document.querySelector("#geo-button");
 currentButton.addEventListener("click", getCurrentPosition);
 
 search("Lisbon");
+displayForecast();
